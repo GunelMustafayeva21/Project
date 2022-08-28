@@ -1,0 +1,48 @@
+
+@media (max-width: 767.98px) {
+  #navbar .logo img {
+    width: 60px;
+  }
+  #navbar .menu a {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 300px) and (max-width:468px) {
+  .needing {
+    width:80%;
+  }
+} 
+@media screen and (min-width: 460px) and (max-width:576px) {
+  .needing {
+    width:50%;
+  }
+  
+} 
+@media screen and (min-width: 580px) and (max-width: 1000px) {
+  .info, .text{
+    width:50%;
+  }
+
+}
+
+@media screen and (max-width: 580px){
+#about .header{
+  padding-top: 20px;
+}
+}
+
+@media screen and  (min-width: 466px) and (max-width: 565px) {
+
+    #Products .add-card {
+        margin-top: 10px;
+    }
+    #Products .card-body{
+        text-align:center;
+    }
+
+}
+@media screen and (max-width: 912px){
+    #Products .container h2.header{
+        margin-top:40px!important;
+    }
+}

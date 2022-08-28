@@ -1,0 +1,39 @@
+﻿@model List<Contact>
+
+<h1 style="padding-left:20px"> Messages</h1>
+<table  style="margin-left:20px" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Message</th>
+            <th>Time</th>
+            <th>Settings</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Contact item in Model)
+        {
+        <tr>
+            <td>@item.CustomerName</td>
+            <td>@item.CustomerSurname</td>
+            <td>@item.CustomerEmail</td>
+            <td>@item.CustomerPhone</td>
+            <td>@item.CustomerAddress</td>
+            <td>@item.CustomerMessage</td>
+            <td>@item.Date</td>
+            <td>
+                <a href="/admin/messages/delete/@item.Id" class="btn btn-danger">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+
+        </tr>
+        }
+
+    </tbody>
+</table>
+

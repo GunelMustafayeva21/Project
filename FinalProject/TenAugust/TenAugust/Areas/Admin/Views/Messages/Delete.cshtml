@@ -1,0 +1,12 @@
+﻿@model Contact
+<h2 style="padding-left:20px;">Do you want to delete this message?</h2>
+
+<p style="padding-left:20px;">Name: @Model.CustomerName</p>
+<p style="padding-left:20px;">Surname: @Model.CustomerSurname</p>
+<p style="padding-left:20px;">Email: @Model.CustomerEmail</p>
+<p style="padding-left:20px;">Phone: @Model.CustomerPhone</p>
+<p style="padding-left:20px;">Address: @Model.CustomerAddress</p>
+<p style="padding-left:20px;">Message: @Model.CustomerMessage</p>
+<p style="padding-left:20px;">Time: @Model.Date</p>
+
+<a style="margin-left:20px;" href="/admin/messages/deleteconfirmed/@Model.Id" class="btn btn-danger">Delete</a>

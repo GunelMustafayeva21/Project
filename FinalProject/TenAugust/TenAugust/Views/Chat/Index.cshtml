@@ -1,0 +1,31 @@
+﻿
+@model List<Message> 
+
+    <section id="messages-area">
+        <div class="container">
+            @foreach (var item in Model)
+            {
+                <div class="message-item">
+                    <div class="message-container">
+                        <p class="sender" style="color:@item.Color">@item.Sender</p>
+                        <p class="message">@item.Text</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+    <section id="send-area">
+        <div class="container">
+            <div class="d-flex">
+                <input type="text" class="form-control form-control-lg" placeholder="Message...">
+                <button class="send-message">
+                    <i class="bi bi-send-fill"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="~/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/chat.js"></script>
+   

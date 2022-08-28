@@ -1,0 +1,16 @@
+﻿@model AppUser
+
+<h1 class="mb-4">Set @Model.Name's Roles</h1>
+<form method="post">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <input type="checkbox" name="setMember" value="true" /> Member <br />
+            <input type="checkbox" name="setAdmin" value="true" /> Admin <br />
+            <input type="checkbox" name="setSuperAdmin" value="true" /> SuperAdmin <br />
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </div>
+</form>

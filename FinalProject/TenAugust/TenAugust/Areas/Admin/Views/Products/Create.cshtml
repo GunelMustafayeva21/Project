@@ -1,0 +1,77 @@
+﻿@model TenAugust.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="padding-left:20px">Create</h1>
+
+<h4 style="padding-left:20px">Product</h4>
+<hr />
+<div class="row" style="margin-left:10px">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Img" class="control-label"></label>
+                <input asp-for="Img" class="form-control" accept="image/*" />
+                <span asp-validation-for="Img" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size1" class="control-label"></label>
+                <input asp-for="Size1" class="form-control" />
+                <span asp-validation-for="Size1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size2" class="control-label"></label>
+                <input asp-for="Size2" class="form-control" />
+                <span asp-validation-for="Size2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size3" class="control-label"></label>
+                <input asp-for="Size3" class="form-control" />
+                <span asp-validation-for="Size3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size4" class="control-label"></label>
+                <input asp-for="Size4" class="form-control" />
+                <span asp-validation-for="Size4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size5" class="control-label"></label>
+                <input asp-for="Size5" class="form-control" />
+                <span asp-validation-for="Size5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size6" class="control-label"></label>
+                <input asp-for="Size6" class="form-control" />
+                <span asp-validation-for="Size6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductCategoryId" class="control-label"></label>
+                <select asp-for="ProductCategoryId" class="form-control" asp-items="ViewBag.ProductCategoryId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="padding-left:25px">
+    <a class="btn btn-dark" asp-action="Index"><i class="bi bi-arrow-left"></i></a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

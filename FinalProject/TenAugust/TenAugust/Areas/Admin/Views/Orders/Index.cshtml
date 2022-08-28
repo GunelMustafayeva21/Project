@@ -1,0 +1,34 @@
+﻿@model List<OrderItem>
+
+<table class="table table-hover table-striped " style="margin-left: 1px;">
+    <thead>
+        <tr>
+
+            <th>Customer Email</th>
+            <th>Customer Address</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Image</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (OrderItem item in Model)
+        {
+        <tr>
+            <td>@item.Order.Email</td>
+            <td>@item.Order.Address</td>
+            <td>@item.Product.Name</td>
+            <td>@item.Product.Price</td>
+            <td><img src="~/images/@item.Product.Image" style="width:70px; aspect-ratio:1/1; object-fit:cover" /></td>
+        </tr>
+         }
+
+            
+
+        </tbody>
+
+</table>
+

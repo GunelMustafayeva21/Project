@@ -1,0 +1,80 @@
+﻿@model TenAugust.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 style="padding-left:20px">Details</h1>
+
+<div style="margin-left:20px">
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Size1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Size1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Size2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Size2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Size3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Size3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Size4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Size4)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Size5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Size5)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Size6)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Size6)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductCategory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductCategory.Name)
+        </dd>
+    </dl>
+</div>
+
+<div style="margin-left:20px">
+    <a class="btn btn-dark" asp-action="Index"><i class="bi bi-arrow-left"></i></a> |
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi bi-pencil-fill"></i></a>
+
+</div>

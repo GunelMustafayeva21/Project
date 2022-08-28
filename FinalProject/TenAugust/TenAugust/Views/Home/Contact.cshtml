@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soleil - Online Fashion Company</title>
+    <link rel="shortcut icon" href="~/images/favicon3.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/Chat.css">
+</head>
+
+<body>
+    -->
+    <!--Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg bg-green">
+        <div class="container">
+            <img class="logo navbar-brand" src="~/images/favicon3.png" style="width:40px; height:40px" alt="logo"> <span>Soleil</span>
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="menu collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="links text-center">
+                    <a href="/Home/Index">Home</a>
+                    <a href="#">Contact</a>
+                    <a href="/Basket/Index">Card</a>
+                    
+                    <a href="/Home/Search"><i class="bi bi-search-heart"></i></a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a href="#"><i class="bi bi-person-circle"></i> @User.Identity.Name</a>
+                        <a href="/account/Logout"><i class="bi bi-box-arrow-in-right"></i></a>
+                    }
+                    else
+                    {
+                        <a href="/account/Login">Login</a>
+                        <a href="/account/Register">Register</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section id="contact">
+        <div class="container">
+            <h2 class="header">Contact</h2>
+            <form method="post" action="/home/contact">
+                <div class="row">
+                    <div class="col-md-6  form-floating mb-3">
+                        <input name="CustomerName" type="text" class="form-control" id="floatingInput" placeholder="Name: ">
+                        <label for="floatingInput">Name: </label>
+                    </div>
+                    <div class="col-md-6 form-floating mb-3">
+                        <input name="CustomerSurname" type="text" class=" form-control" id="FloatingInput" placeholder="Surname: ">
+                        <label for="FloatingInput">Surname: </label>
+                    </div>
+                    <div class="col-md-6 form-floating mb-3">
+                        <input name="CustomerEmail" type="email" class=" form-control" id="FloatingInput" placeholder="Email: ">
+                        <label for="FloatingInput">Email: </label>
+                    </div>
+                    <div class="col-md-6 form-floating mb-3">
+                        <input name="CustomerPhone" type="number" class=" form-control" id="FloatingInput" placeholder="Phone Number: ">
+                        <label for="FloatingInput">Phone Number: </label>
+                    </div>
+                    <div class="col-md-12 form-floating mb-3">
+                        <input name="CustomerAddress" type="text" class=" form-control" id="FloatingInput" placeholder="Address: ">
+                        <label for="FloatingInput">Address: </label>
+                    </div>
+                    <div class="col-12 form-floating mb-3">
+                        <textarea name="CustomerMessage" class=" form-control" id="FloatingInput" placeholder="Message: "></textarea>
+                        <label for="FloatingInput">Add Message...</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn3  ">Submit</button>
+                <button type="reset" class="btn3 ">Reset</button>
+            </form>
+        </div>
+    </section>
+    @if (TempData["message"] != null && string.IsNullOrEmpty(TempData["message"].ToString()))
+    {
+        <input type="hidden" value="@TempData["message"].ToString()" id="action-result" />
+    }
+
+</body>
+</html>

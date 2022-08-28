@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TenAugust.Models.Main>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="padding-left:20px">Index</h1>
+
+<p style="padding-left:20px">
+    <a class="btn btn-primary" asp-action="Create"><i class="bi bi-pencil-fill"></i></a>
+</p>
+<table class="table" style="padding-left:20px">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Heading)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="~/images/@item.Image" style="width:70px; aspect-ratio:1/1; object-fit:cover" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Heading)
+            </td>
+            <td>
+                <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a> |
+                <a class="btn btn-dark"asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-book"></i></a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash3-fill"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

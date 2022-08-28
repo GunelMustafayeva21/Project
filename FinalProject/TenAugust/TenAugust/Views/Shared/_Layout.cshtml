@@ -1,0 +1,81 @@
+﻿
+@RenderBody()
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/630b926237898912e965c6f8/1gbij7mbe';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+
+    /*Products Link*/
+    $(".category").click(function (e) {
+        e.preventDefault();
+        $(".needing").addClass("d-none");
+        $(".needing." + $(this).data("target")).removeClass("d-none");
+    });
+    /*Contact empty input*/
+    if (document.querySelector("#action-result")) {
+        alert(document.querySelector("#action-result").value);
+    }
+    /*Products Pagination*/
+    let skip = 4;
+    let productCount = $("#product-count").val();
+    $(".load-product").click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: "/home/loadmoreproducts?skip=" + skip,
+            method: "get",
+            success: function (result) {
+                $(".product-wrapper").append(result);
+                skip += 4;
+                if (skip >= productCount) {
+                    $(".load-product").remove();
+                }
+            }
+
+        })
+
+    });
+
+    /*Search*/
+    $("#search-input").keyup(function () {
+        let query = $("#search-input").val();
+        if (query.length >= 3) {
+            $.ajax({
+                url: "/home/SearchProduct?query=" + query,
+                method: "get",
+                success: function (result) {
+                    $(".product-wrapper").empty();
+                    $(".product-wrapper").append(result);
+
+                }
+            })
+
+        }
+        else {
+            $(".product-wrapper").empty();
+        }
+
+    });
+
+
+
+
+
+</script>
+

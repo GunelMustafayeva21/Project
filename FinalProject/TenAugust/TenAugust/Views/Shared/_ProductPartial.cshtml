@@ -1,0 +1,36 @@
+﻿
+@model HomeViewModel
+@foreach (Product item in Model.Products)
+{
+    <div class="  col-lg-3 col-md-4 col-sm-6 col-12 needing @item.ProductCategory.Name.ToLower()">
+        <div class="card">
+            <img src="~/images/@item.Image" class="card-img-top">
+            <div class="card-body ">
+                <h5 class="card-title">@item.Name</h5>
+                <p class="price "> @item.Price $</p>
+                <select id="size-select">
+                    <option value="@item.Size1">@item.Size1</option>
+                    <option value="@item.Size2">@item.Size2</option>
+                    <option value="@item.Size3">@item.Size3</option>
+                    <option value="@item.Size4">@item.Size4</option>
+                    <option value="@item.Size5">@item.Size5</option>
+                    <option value="@item.Size6">@item.Size6</option>
+                </select>
+                <a href="/basket/AddToBasket?id=@item.Id&size=@item.Size1" class="add-card"><i class="bi bi-bag-heart-fill"></i></a>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).on("change", "#size-select", function () {
+        let size = $(this).val();
+        let oldlink = $(this).next().attr("href");
+        let pos = oldlink.lastIndexOf("=");
+        oldlink = oldlink.substring(0, pos + 1);
+        $(this).next().attr("href", oldlink + size)
+    })
+</script>
